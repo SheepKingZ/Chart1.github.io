@@ -1,5 +1,6 @@
 <!--
-	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-simple
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType-simple&code=PYBwLglsB2AEC8sDeAoWsA2BTA5l6AJgFzJrqxigkDkARsGJQLbVkC-ANGZcBvQB4lU5WAGcAFsADuJMACcArli4iAZlgCGYBXKxCyIphrkBrIWMkyKirLE4HyBLRoBqELFaQXpsmx1i6GgQA8tAYAJ4kqhoYorb2Iui6opS65hI-1kp2KomiGgBuWACCogCSRnjplr7ZbA716AliWHLuoiQA2g7CidAaTHqw1AByEDjikNA4MbYAwuLGYNS5ImDhIEPUIO4rDklBEAodsJ0ArAAM_gBMlwC6q-QAxvhgrV3UlwCkK8Pf1A99gFgHEACobLbGTR7RKwCBvJgAZXW2H0sPQ9DkBFaACVDscSAAOIHNEROMAaLpeAoxJQkACMhMJ1wAdAB2K6wfqDGiAfz1AHu6gCA9ag5IHoam0ob0tlsgCcLIu9P83K2gEfbQDM6sLRejkLAaRg6bB6RcACyEllnADMyoGW0AOHKAPOCtaTEhKDUNZQA2ekWk02nnDQDa8oBHHWdjxEbsNnoubJZlr9XNtNEABwZCkWcSNDM2s64JlU0QD6NoAL1LDYt1-sNJpNZxZzP9W0AtHKh9Ph8hlzMkE30y0s6X1miAcIDAGF6pZ1HdguflXf7w0AB86Ad1tnWWgXcGmRV2wANxAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
 -->
 <!DOCTYPE html>
 <html lang="en" style="height: 100%">
@@ -43,17 +44,39 @@
     var option;
 
     option = {
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  legend: {
+    top: 'bottom'
   },
-  yAxis: {
-    type: 'value'
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      dataView: { show: true, readOnly: false },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
   },
   series: [
     {
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: 'bar'
+      name: 'Nightingale Chart',
+      type: 'pie',
+      radius: [50, 250],
+      center: ['50%', '50%'],
+      roseType: 'area',
+      itemStyle: {
+        borderRadius: 8
+      },
+      data: [{ value: 1882.70, name: '广州市' },
+        { value: 1779.01, name: '深圳市' },
+        { value: 1048.53, name: '东莞市' },
+        { value: 961.54, name: '佛山市' },
+        { value: 607.34, name: '惠州市' },{ value: 482.24, name: '江门市' },
+        { value: 445.82, name: '中山市' },
+        
+        { value: 413.17, name: '肇庆市' },
+        { value: 249.41, name: '珠海市' }
+        
+      ]
     }
   ]
 };
