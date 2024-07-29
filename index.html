@@ -1,5 +1,5 @@
 <!--
-	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType-simple&code=PYBwLglsB2AEC8sDeAoWsA2BTA5l6AJgFzJrqxigkDkARsGJQLbVkC-ANGZcBvQB4lU5WAGcAFsADuJMACcArli4iAZlgCGYBXKxCyIphrkBrIWMkyKirLE4HyBLRoBqELFaQXpsmx1i6GgQA8tAYAJ4kqhoYorb2Iui6opS65hI-1kp2KomiGgBuWACCogCSRnjplr7ZbA716AliWHLuoiQA2g7CidAaTHqw1AByEDjikNA4MbYAwuLGYNS5ImDhIEPUIO4rDklBEAodsJ0ArAAM_gBMlwC6q-QAxvhgrV3UlwCkK8Pf1A99gFgHEACobLbGTR7RKwCBvJgAZXW2H0sPQ9DkBFaACVDscSAAOIHNEROMAaLpeAoxJQkACMhMJ1wAdAB2K6wfqDGiAfz1AHu6gCA9ag5IHoam0ob0tlsgCcLIu9P83K2gEfbQDM6sLRejkLAaRg6bB6RcACyEllnADMyoGW0AOHKAPOCtaTEhKDUNZQA2ekWk02nnDQDa8oBHHWdjxEbsNnoubJZlr9XNtNEABwZCkWcSNDM2s64JlU0QD6NoAL1LDYt1-sNJpNZxZzP9W0AtHKh9Ph8hlzMkE30y0s6X1miAcIDAGF6pZ1HdguflXf7w0AB86Ad1tnWWgXcGmRV2wANxAA
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-stack-radial&code=PYBwLglsB2AEC8sDeAoW6zGAG0iAXMgL4A0asAhtAObYCmAggB4QDOhq6GAniHYQHIAxhTB1qwAE7cBZLrAAmoioQDaAwKgBgBnVZsAYHTzHST2AWG0D76roGAvvUB90YApXHQF1ypcpIoKIAV1bM2HV3QQHApJALlYVjpJCDp2WFVydE55WDBefj0AI1DZJK4lMBUEgFYAdgBmADYARhKADgA6cuMKgBYKmpqAJjK2xoqS41gqgE4S8pKKxraylGMAWhq27vqy-tGZtscI-SEsSU9oUToAZW5WMQBbQWDsXN2uY6vMgW6ABk_AFz1AfFdAQANAN8-gH2_QCw5oBCpUA73KAHgUAPQACkA4HKAYUUAJR5VKRIpCADWggo6NSdCuIAAFhRWP5kPl5AAzYBCHyCKIxOICamwIj5QJcFLydJ8QQ5SQE-SFYqqNr1boNcqNd41VqS0ajGr1GoDd7DMqq971KpVRr64YLboVXWSkozEo7dn7KRHE7nS5E24hYWPdDPV4fGrvX6A0GQ2GI1EiriXCg4vFh9BE0nkym81J0hnxATM2KsNkYznybnJdn815CmOKZRqNqjd6dboGtaKwYlD5lRpdYwlNoTJtNJvG1bvFVlA01CooG0Yu2HCDHMRO66u-7u9lewQfD7_YHg6Hw5Foj2YyO4vT4_dxskU-JJ2n0xl6DOs9m5rhP8ewejUOjQBQcfKsEnAAB3QgwEkLw6EeMU1AEBhLAAIUsABhARnHQTkiAAbiAA
 	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
 -->
 <!DOCTYPE html>
@@ -44,42 +44,51 @@
     var option;
 
     option = {
-tooltip: {},
-  legend: {
-    top: 'bottom'
+   tooltip: {},
+  angleAxis: {
+    type: 'category',
+    data: ['耕地', '林地', '水域', '建设用地']
   },
-  toolbox: {
-    show: true,
-    feature: {
-      mark: { show: true },
-      dataView: { show: true, readOnly: false },
-      restore: { show: true },
-      saveAsImage: { show: true }
-    }
-  },
+  radiusAxis: {},
+  polar: {},
   series: [
     {
-      name: 'Nightingale Chart',
-      type: 'pie',
-      radius: [50, 250],
-      center: ['50%'， '50%'],
-      roseType: 'area',
-      itemStyle: {
-        borderRadius: 8
-      },
-      data: [{ value: 1882.70, name: '广州市' },
-        { value: 1779.01, name: '深圳市' },
-        { value: 1048.53, name: '东莞市' },
-        { value: 961.54, name: '佛山市' },
-        { value: 607.34, name: '惠州市' },{ value: 482.24, name: '江门市' },
-        { value: 445.82, name: '中山市' },
-        
-        { value: 413.17, name: '肇庆市' },
-        { value: 249.41, name: '珠海市' }
-        
-      ]
+      type: 'bar',
+      data: [5736158.57, 34311274.35,  6955753.47
+, -1428789.44],
+      coordinateSystem: 'polar',
+      name: '2000年生态系统服务价值/(万元)',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [4825857.01, 34899181.30,  7180866.66,  -2308485.45],
+      coordinateSystem: 'polar',
+      name: '2010年生态系统服务价值/(万元)',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [4903126.87, 34355207.11, 5455528.52,  -2809176.13
+],
+      coordinateSystem: 'polar',
+      name: '2020生态系统服务价值/(万元)',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
     }
-  ]
+  ],
+  legend: {
+    show: true,
+    data: ['A', 'B', 'C']
+  }
 };
 
     if (option && typeof option === 'object') {
