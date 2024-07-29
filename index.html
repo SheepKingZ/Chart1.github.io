@@ -1,5 +1,5 @@
 <!--
-	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-stack-radial&code=PYBwLglsB2AEC8sDeAoW6zGAG0iAXMgL4A0asAhtAObYCmAggB4QDOhq6GAniHYQHIAxhTB1qwAE7cBZLrAAmoioQDaAwKgBgBnVZsAYHTzHST2AWG0D76roGAvvUB90YApXHQF1ypcpIoKIAV1bM2HV3QQHApJALlYVjpJCDp2WFVydE55WDBefj0AI1DZJK4lMBUEgFYAdgBmADYARhKADgA6cuMKgBYKmpqAJjK2xoqS41gqgE4S8pKKxraylGMAWhq27vqy-tGZtscI-SEsSU9oUToAZW5WMQBbQWDsXN2uY6vMgW6ABk_AFz1AfFdAQANAN8-gH2_QCw5oBCpUA73KAHgUAPQACkA4HKAYUUAJR5VKRIpCADWggo6NSdCuIAAFhRWP5kPl5AAzYBCHyCKIxOICamwIj5QJcFLydJ8QQ5SQE-SFYqqNr1boNcqNd41VqS0ajGr1GoDd7DMqq971KpVRr64YLboVXWSkozEo7dn7KRHE7nS5E24hYWPdDPV4fGrvX6A0GQ2GI1EiriXCg4vFh9BE0nkym81J0hnxATM2KsNkYznybnJdn815CmOKZRqNqjd6dboGtaKwYlD5lRpdYwlNoTJtNJvG1bvFVlA01CooG0Yu2HCDHMRO66u-7u9lewQfD7_YHg6Hw5Foj2YyO4vT4_dxskU-JJ2n0xl6DOs9m5rhP8ewejUOjQBQcfKsEnAAB3QgwEkLw6EeMU1AEBhLAAIUsABhARnHQTkiAAbiAA
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=mix-line-bar&code=PYBwLglsB2AEC8sDeAoWszGAG0iAXMmuhgE4QDmFApqYQOQCGAHhAM70A0x6L7ACsAjQwtQqhIkwATxDUGAY1LA2HbpPRKVbAMozs8ohpIKcwOrHoBiAJx36PEgF9HL9E_UYs2AEbBm4o4AZtSMYACupIYSGgAmYYwAahDUAO7isGwAFsDpZOHUnLBRjLEA8tDY0oRBjNhs1LAejugAtowUEAoAKrLRmTl5YKQFRTJyhADa9NjC1FyWPoyk9AC6TZ6SUWyYURnZuYTDBRstmYwAbtQAgmwAku00-4NHI41uzsTN6AY00LGBSTxMCMKb0ABMAAZoYAXPUAHHqAeXlAF1ygGPlBYQyFQ-HItFFeiAPI1AP6pgHDnNZfTzMa6sNhTRwxSTjQz0BRhagUczSLhnYGg2DTQD6NoAL1PRgHCAwBheujADhygDzg9GAbXlAI466MAtHJKvGAfz1AHu66MABwbazj0QAHzoB3Wy49EAj7aAZnU1psSHw2IJhKILPSNIyGNlSrkHMYPu5iKtPNIqexaZJXeh3ZYLnUClzjNBGK0majAA6m8Y0rWEhEhtraLEIUOhedgTtoMewheLZ3tABlGD5qJWjMZYEFzO0wM6GEgKwUnLBAOByPo0ftO4bOUfoffmJcTyYYRNJJaz0BzK4LsAAjABWXNnMukCuEXclusNpuA1vt0id7uWXux6gDgCkI8kY4-geIDXI1BpfJ0mc85MkWkLYqiGYMn0DBLCsJaYDgeBXsYM4AGIdmE95BOE0AKJAMCwAAFDOACULatsU1ARKQcAzrAADUlhDki9AANxnP6voljyYatgAzDYO4AHSQvxRT8fxADswlbgALEUABsclycJO5SUUO6ScJUk2EU4L8Ypwn8TuRR2Kp4mwPx4JbsJimWVuBlqYpRRSdCwkABxyWcqyuLaEawCBDBQliiKQQhMGLMsUFSN4yEURo6GYV2Yhtrh-FQHAJFPuRAVbNRkR0U-jHMYOrEcZRY7uDxCR8cYcm6Z5W5FHJW62YZRRbpCclGYpLmwDYck2J5emwCptkec124eYpMl9Up3XCeCo3gnJ_HCTY_VblJO5GZCW4-X5QEJkmTJLjFkaRTMcwXbAwbUnc_zUAE24IXFEAEAlkhJbeWGpTheEEVlZFfRoUQ0UV2AnEx9CwG-FWtlV45xLVfI2cZ-ngqJSlY5ZUkyaNM0bUUHkyR5JME2ZMkKdue52Z1RmmduWO5rARngr5H4BigThsUAA
 	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
 -->
 <!DOCTYPE html>
@@ -44,51 +44,94 @@
     var option;
 
     option = {
-   tooltip: {},
-  angleAxis: {
-    type: 'category',
-    data: ['耕地', '林地', '水域', '建设用地']
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      crossStyle: {
+        color: '#999'
+      }
+    }
   },
-  radiusAxis: {},
-  polar: {},
-  series: [
+  toolbox: {
+    feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  legend: {
+    data: ['2000年常住人口', '2020年常住人口', '增长率']
+  },
+  xAxis: [
     {
-      type: 'bar',
-      data: [5736158.57, 34311274.35,  6955753.47
-, -1428789.44],
-      coordinateSystem: 'polar',
-      name: '2000年生态系统服务价值/(万元)',
-      stack: 'a',
-      emphasis: {
-        focus: 'series'
-      }
-    },
-    {
-      type: 'bar',
-      data: [4825857.01, 34899181.30,  7180866.66,  -2308485.45],
-      coordinateSystem: 'polar',
-      name: '2010年生态系统服务价值/(万元)',
-      stack: 'a',
-      emphasis: {
-        focus: 'series'
-      }
-    },
-    {
-      type: 'bar',
-      data: [4903126.87, 34355207.11, 5455528.52,  -2809176.13
-],
-      coordinateSystem: 'polar',
-      name: '2020生态系统服务价值/(万元)',
-      stack: 'a',
-      emphasis: {
-        focus: 'series'
+      type: 'category',
+      data: ['江门', '肇庆', '东莞', '佛山', '中山', '广州', '惠州','珠海','深圳'],
+      axisPointer: {
+        type: 'shadow'
       }
     }
   ],
-  legend: {
-    show: true,
-    data: ['A', 'B', 'C']
-  }
+  yAxis: [
+    {
+      type: 'value',
+      name: '人口数',
+      min: 0,
+      max: 2000,
+      interval: 200,
+      axisLabel: {
+        formatter: '{value} 万'
+      }
+    },
+    {
+      type: 'value',
+      name: '增长率',
+      min: 0,
+      max: 150,
+      interval: 15,
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    }
+  ],
+  series: [
+    {
+      name: '2000年常住人口',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' 万人';
+        }
+      },
+      data: [
+        395.03, 337.14, 644.57, 533.79, 236.35, 994.3, 321.63, 123.56, 700.84
+      ]
+    },
+    {
+      name: '2020年常住人口',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' 万人';
+        }
+      },
+      data: [
+        479.81, 411.36, 1046.66, 949.89, 441.81, 1867.66, 604.29, 243.96, 1756.01
+      ]
+    },
+    {
+      name: '增长率',
+      type: 'line',
+      yAxisIndex: 1,
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' %';
+        }
+      },
+      data: [21.3, 22.0, 62.3, 77.9, 86.9, 87.8, 87.9, 97.4, 150.6, 16.5, 12.0, 6.2]
+    }
+  ]
 };
 
     if (option && typeof option === 'object') {
